@@ -13,60 +13,30 @@ npm install flunt-ts
 ## Usage
 
 ```typescript
-import { flunt } from 'flunt';
+import { flunt } from '../node_modules/flunt-ts/src';
+import { Contract } from '../node_modules/flunt-ts/src/lib/Contract';
 
-//create a new model and a property
-class client extends flunt {
-  private _name: string;
+export class TodoItem extends flunt {
 
-  public constructor(name:string) {
-     this._name = name;
-     //the validate method will run the flunt for this specific model.
-     Validate(); 
-  }
+    public id: number;
+    public task: string;
+    public complete: boolean = false;
 
-  Validate() {
-    const contract = new Contract()
-        .IsNotNullOrEmptyString(
-          this._name,
-         'name',
-         'Name should not be null or empty')
-	    .IsLengthBetweenMaxMin(
-          this._name, 
-          15,
-          3,
-         'name', 
-         'Name must have at least 3 characteres and maximum of 15') 
-  }
+    public constructor(id: number, task: string, complete: boolean = false) {
+        super();
+        this.id = id;
+        this.task = task;
+        this.complete = complete;
+        Validate();
+    }
 
+    Validate(): void {
+        const contract = new Contract()
+            .IsNotNull(this.id, 'id', 'id cant be null')
+    }
 }
 ```
-```javascript
-//Then, you can just validate your model and use as you please
-import { Client } from './client.ts';
 
-let client: Client;
-
-describe('client tests should be valid', () => {
-	test('a new client should be created', () => {
-	  //act
-    	  client = new Client('');
-
-	  //act
-	  const result = client.Valid;
-	  const messagesLength = client.Notifications.length;
-	  const errorMessage = client.Notifications.find((err) => err.message).message;
-	  const errorProperty = client.Notifications.find((err) => err.property).property;
-
-	 //assert
-	 expect(result).toBe(false);
-	 expect(messagesLength).toBe(1);
-	 expect(errorMessage).toBe('Name should not be null or empty');
-	 expect(errorProperty).toBe('name');
-	});
-});
-
-```
 > Note: You may want to check the "src/ex" folder to see a full example.
 
 ## Contributing
