@@ -53,21 +53,21 @@ describe('client tests should be valid', () => {
     client = new Client('');
 
 	  //act
-		const result = client.Valid;
-		const messagesLength = client.Notifications.length;
-		const errorMessage = client.Notifications.find((err) => err.message).message;
-		const errorProperty = client.Notifications.find((err) => err.property).property;
+	  const result = client.Valid;
+	  const messagesLength = client.Notifications.length;
+	  const errorMessage = client.Notifications.find((err) => err.message).message;
+	  const errorProperty = client.Notifications.find((err) => err.property).property;
 
-		//assert
-		expect(result).toBe(false);
-		expect(messagesLength).toBe(1);
-		expect(errorMessage).toBe('Name should not be null or empty');
-		expect(errorProperty).toBe('name');
+	 //assert
+	 expect(result).toBe(false);
+	 expect(messagesLength).toBe(1);
+	 expect(errorMessage).toBe('Name should not be null or empty');
+	 expect(errorProperty).toBe('name');
 	});
 });
 
 ```
-> Note: You may want to check the "srx/ex" folder to see a full example.
+> Note: You may want to check the "src/ex" folder to see a full example.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
