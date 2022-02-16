@@ -49,4 +49,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate, and run lint and prettier always before commit.
 
 ## License
-[MIT](https://opensource.org/licenses/ISC)
+[ISC](https://opensource.org/licenses/ISC)
