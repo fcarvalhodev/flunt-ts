@@ -1,0 +1,38 @@
+{
+  "name": "flunt-ts",
+  "version": "1.0.1",
+  "author": "Fábio de Paula Carvalho",
+  "description": "Flunt is a fluent way to validate your entities, concentrating every change you made and easy accessing it when you need.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest --watchAll",
+    "test-result": "npx jest",
+    "start": "tsc-watch --onsuccess \"node dist/index.js\"",
+    "debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run prettier-format",
+      "pre-push": "npm run test-result"
+    }
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.5.5"
+  }
+}
