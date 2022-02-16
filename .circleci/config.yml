@@ -1,44 +1,42 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.7.0
-  heroku: circleci/heroku@1.2.6
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
 
 jobs:
-  build_and_test:
+  build:
+    working_directory: ~/mern-starter
     docker:
-      - image: cimg/node:17.2.0
+      - image: circleci/node:10.16.3
+      - image: mongo:4.2.0
     steps:
-      - name: Install dependencies
-      - run:
-          npm i
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
       - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@5'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: install-npm-wee
           command: npm install
-          name: Run npm
-      - run:
-          command: npm run test
-          name: Run tests
-      - run:
-          command: npm run lint
-          name: Build app
-      - persist_to_workspace:
-          root: ~/project
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
-            - .
-workflows:
-  on_commit:
-    jobs:
-      - build_and_test
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"       
-          filters:
-            branches:
-              only:
-                - master
-                - docs-node-js-language-guide
-    jobs:
-      - build_and_test
+            - ./node_modules
+      - run:
+          name: test
+          command: npm test
+      - run:
+          name: code-coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: test-results.xml
