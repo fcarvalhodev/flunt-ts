@@ -17,10 +17,10 @@ import { flunt } from 'flunt';
 
 //create a new model and a property
 class client extends flunt {
-  public name: string;
+  private _name: string;
 
   public constructor(name:string) {
-     this.name = name;
+     this._name = name;
      //the validate method will run the flunt for this specific model.
      Validate(); 
   }
