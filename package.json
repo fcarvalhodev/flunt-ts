@@ -5,8 +5,8 @@
   "description": "Flunt is a fluent way to validate your entities, concentrating every change you made and easy accessing it when you need.",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --watchAll",
-    "test-result": "npx jest",
+    "test": "npx jest",
+    "test-watch": "npx jest --watchAll",
     "start": "tsc-watch --onsuccess \"node dist/index.js\"",
     "debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "lint": "eslint . --ext .ts",
