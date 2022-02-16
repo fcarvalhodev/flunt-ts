@@ -49,8 +49,8 @@ let client: Client;
 
 describe('client tests should be valid', () => {
 	test('a new client should be created', () => {
-		//act
-    client = new Client('');
+	  //act
+    	  client = new Client('');
 
 	  //act
 	  const result = client.Valid;
