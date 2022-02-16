@@ -50,9 +50,9 @@ let client: Client;
 describe('client tests should be valid', () => {
 	test('a new client should be created', () => {
 		//act
-        client = new Client('');
+    client = new Client('');
 
-	    //act
+	  //act
 		const result = client.Valid;
 		const messagesLength = client.Notifications.length;
 		const errorMessage = client.Notifications.find((err) => err.message).message;
@@ -67,7 +67,7 @@ describe('client tests should be valid', () => {
 });
 
 ```
-> Note: You may want to check the "ex" folder to see a full example.
+> Note: You may want to check the "srx/ex" folder to see a full example.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
