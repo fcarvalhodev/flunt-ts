@@ -11,7 +11,6 @@ jobs:
     working_directory: ~/mern-starter
     docker:
       - image: circleci/node:10.16.3
-      - image: mongo:4.2.0
     steps:
       - checkout
       - run:
@@ -28,7 +27,7 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: npm test
+          command: npm test-result
       - run:
           name: code-coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'
