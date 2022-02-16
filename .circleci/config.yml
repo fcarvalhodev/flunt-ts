@@ -12,6 +12,9 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
+          command: npm install
+          name: Run npm
+      - run:
           command: npm run test
           name: Run tests
       - run:
