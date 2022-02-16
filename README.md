@@ -2,6 +2,10 @@
 
 Flunt is a fluent way to validate your entities, concentrating every change you made and easy accessing it when you need.
 
+# Git
+
+[check the repo](https://github.com/fcarvalhodev/flunt-ts/)
+
 ## Installation
 
 Use the package manager [npm](https://nodejs.org/en/) to install the depedencies.
