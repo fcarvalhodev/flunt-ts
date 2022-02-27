@@ -17,8 +17,7 @@ npm install flunt-ts
 ## Usage
 
 ```typescript
-import { flunt } from '../node_modules/flunt-ts/src';
-import { Contract } from '../node_modules/flunt-ts/src/lib/Contract';
+import { Contract, Flunt } from '../node-modules/flunt-ts/src/modules/flunt';
 
 export class TodoItem extends flunt {
 
@@ -49,4 +48,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate, and run lint and prettier always before commit.
 
 ## License
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://opensource.org/licenses/MIT)

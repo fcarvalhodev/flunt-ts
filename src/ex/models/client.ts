@@ -1,7 +1,6 @@
-import { Contract } from '../../lib/Contract';
-import { ModelBase } from './model-base';
+import { Contract, Flunt } from '../../modules/flunt';
 
-export class Client extends ModelBase {
+export class Client extends Flunt {
 	private _id: number;
 	private _name: string;
 	private _email: string;
