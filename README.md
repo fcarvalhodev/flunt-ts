@@ -19,7 +19,7 @@ npm install flunt-ts
 ```typescript
 import { Contract, Flunt } from '../node-modules/flunt-ts/src/modules/flunt';
 
-export class TodoItem extends flunt {
+export class TodoItem extends Flunt {
 
     public id: number;
     public task: string;
