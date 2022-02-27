@@ -1,6 +1,6 @@
 {
   "name": "flunt-ts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Fábio de Paula Carvalho",
   "description": "Flunt is a fluent way to validate your entities, concentrating every change you made and easy accessing it when you need.",
   "main": "index.js",
@@ -21,7 +21,7 @@
     }
   },
   "keywords": [],
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
